@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/noteOverviewFragment">
+
+    <fragment
+        android:id="@+id/noteOverviewFragment"
+        android:name="com.ph.notestash.ui.overview.NoteOverviewFragment"
+        android:label="fragment_note_overview"
+        tools:layout="@layout/fragment_note_overview">
+        <action
+            android:id="@+id/action_noteOverviewFragment_to_noteEditFragment"
+            app:destination="@id/noteEditFragment" />
+        <action
+            android:id="@+id/action_noteOverviewFragment_to_noteOverviewSortDialogFragment"
+            app:destination="@id/noteOverviewSortDialogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteEditFragment"
+        android:name="com.ph.notestash.ui.edit.NoteEditFragment"
+        android:label="fragment_note_edit"
+        tools:layout="@layout/fragment_note_edit">
+        <argument
+            android:name="noteId"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <dialog
+        android:id="@+id/noteOverviewSortDialogFragment"
+        android:name="com.ph.notestash.ui.overview.dialog.NoteOverviewSortDialogFragment"
+        android:label="NoteOverviewSortDialogFragment"
+        tools:layout="@layout/fragment_note_overview_sort_dialog" />
+</navigation>
